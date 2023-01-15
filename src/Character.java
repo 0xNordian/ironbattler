@@ -1,23 +1,19 @@
-public abstract class Character {
+import java.util.UUID;
 
+public abstract class Character {
     private String id;
     private String name;
     private int hp;
-    private boolean isAlive = true;
+    private boolean isAlive;
 
-    public Character(String id, String name, int hp, boolean isAlive) {
-        this.id = id;
+    public Character(String name) {
+        this.id = UUID.randomUUID().toString();
         setName(name);
-        setHp(hp);
-        this.isAlive = isAlive;
+        this.isAlive = true;
     }
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -42,4 +38,9 @@ public abstract class Character {
     public void setAlive(boolean alive) {
         isAlive = alive;
     }
+
+    public void changeHp(int newHp){
+        this.hp = newHp;
+    }
+
 }

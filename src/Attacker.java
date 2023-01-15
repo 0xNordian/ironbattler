@@ -1,3 +1,5 @@
 public interface Attacker {
-    void attack();
+    boolean attack();
+
+    void attack(Character attackedCharacter);
 }
