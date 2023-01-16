@@ -44,7 +44,6 @@ public class Warrior extends Character implements Attacker{
 
     @Override
     public boolean isAlive() {
-        super.setAlive(true);
         return super.isAlive();
     }
 
