@@ -6,8 +6,13 @@ public class Warrior extends Character implements Attacker{
         super(name);
         setStamina();
         setStrength();
-        setHp((int) (Math.random() * (200 - 100)) + 100);
-        attack();
+        setHp();
+    }
+
+    public Warrior(String name, int hp) {
+        super(name, hp);
+        setStamina();
+        setStrength();
     }
 
     public int getStamina() {
@@ -31,9 +36,10 @@ public class Warrior extends Character implements Attacker{
         return super.getHp();
     }
 
-    @Override
-    public void setHp(int hp) {
-        super.setHp(hp);
+
+    public void setHp() {
+        int vida = (int) (Math.random() * (200 - 100)) + 100;
+        super.setHp(vida);
     }
 
     @Override
@@ -42,28 +48,6 @@ public class Warrior extends Character implements Attacker{
         return super.isAlive();
     }
 
-    @Override
-    public boolean attack() {
-        return false;
-    }
-
-    @Override
-    public void attack(Character character) {
-        boolean heavy = true;
-        boolean attackType = (Math.random() < 0.5) ? heavy : !heavy;
-        System.out.println("attackType: " + attackType);
-        if(attackType){
-            int damage = strength;
-            character.setHp(character.getHp() - damage);
-            stamina -= 5;
-        } else {
-            int damage = strength / 2;
-            stamina += 2;
-        }
-        //int damage = (int) (Math.random() * 2) == 0 ? strength : strength / 2;
-        //character.setHp(character.getHp() - damage);
-        //stamina += 2;
-    }
 
     @Override
     public String toString() {
@@ -71,5 +55,10 @@ public class Warrior extends Character implements Attacker{
                 "stamina=" + stamina +
                 ", strength=" + strength +
                 '}';
+    }
+
+    @Override
+    public void attack() {
+
     }
 }

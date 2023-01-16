@@ -12,6 +12,13 @@ public abstract class Character {
         this.isAlive = true;
     }
 
+    public Character(String name, int hp) {
+        this.id = UUID.randomUUID().toString();
+        setName(name);
+        setHp(hp);
+        this.isAlive = true;
+    }
+
     public String getId() {
         return id;
     }
@@ -29,7 +36,11 @@ public abstract class Character {
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
+        if(hp <= 0) {
+            this.hp = 1;
+        } else {
+            this.hp = hp;
+        }
     }
     public boolean isAlive() {
         return isAlive;
