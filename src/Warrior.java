@@ -57,7 +57,7 @@ public class Warrior extends Character implements Attacker{
     }
 
     @Override
-    public void attack() {
+    public void attack(Character character) {
 
     }
 }
