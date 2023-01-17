@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Wizard extends Character implements Attacker {
     private int mana;
@@ -38,8 +39,53 @@ public class Wizard extends Character implements Attacker {
     }
 
     @Override
-    public void attack() {
+    public boolean isAlive() {
+        return super.isAlive();
+    }
 
+    @Override
+    public void attack(Character character) {
+        Random random= new Random();
+
+        boolean isFireball = random.nextBoolean();
+        if (isFireball){
+            fireball(character);
+        } else{
+            staffHit(character);
+        }
+    }
+
+    ////// fireball attack///////
+    private void fireball(Character character) {
+        //variable de fbDamage
+        int fbDamage= this.intelligence;
+        if (this.mana<5 && this.mana>0){
+            staffHit(character);
+
+
+        } else if (this.mana >=5) {
+            this.mana -= 5;
+            character.setHp(character.getHp()-fbDamage);
+            System.out.println("Attack: fireBall, Damage = Intelligence, -5 point mana");
+
+        }
+    }
+
+    private void staffHit (Character character){
+        int shDamage;
+        if ( this.mana<5 && this.mana>0) {
+            this.mana += 2;
+            shDamage = 0;
+            System.out.println("Mana is lower than 5, attack type Staff Hit, 2 mana recovered");
+        }
+        if (this.mana >= 5){
+
+            // damage to warrior? how to represent it
+            shDamage =2;
+            this.mana +=1;
+            character.setHp(character.getHp()-shDamage);
+            System.out.println("Attack: staff Hit, Damage -2, you have gain 1 mana");
+        }
     }
 }
 
