@@ -38,7 +38,7 @@ public class Wizard extends Character implements Attacker {
     }
 
     @Override
-    public void attack() {
+    public void attack(Character player) {
 
     }
 }
