@@ -4,6 +4,18 @@ import java.util.Scanner;
 
 public class Menu {
     public static void startMenu() {
+        String art = """
+
+                ██ ██████   ██████  ███    ██ ██████   █████  ████████ ████████ ██      ███████\s
+                ██ ██   ██ ██    ██ ████   ██ ██   ██ ██   ██    ██       ██    ██      ██     \s
+                ██ ██████  ██    ██ ██ ██  ██ ██████  ███████    ██       ██    ██      █████  \s
+                ██ ██   ██ ██    ██ ██  ██ ██ ██   ██ ██   ██    ██       ██    ██      ██     \s
+                ██ ██   ██  ██████  ██   ████ ██████  ██   ██    ██       ██    ███████ ███████\s
+
+                                      
+                """;
+
+        art.lines().forEach(System.out::println);
         Scanner sc = new Scanner(System.in);
         int choice;
         do {
@@ -20,9 +32,10 @@ public class Menu {
             if (choice == 1) {
                 int count = 0;
                 while (count < 2) {
+                    System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
                     System.out.println("Create characters:");
-                    System.out.println("1) Warrior");
-                    System.out.println("2) Wizard");
+                    System.out.println("1) Warrior ⚔️\uD83D\uDEE1️");
+                    System.out.println("2) Wizard \uD83E\uDDD9\u200D️\uD83D\uDD2E");
                     int subChoice = sc.nextInt();
                     sc.nextLine();
                     if (subChoice < 1 || subChoice > 2) {
@@ -30,19 +43,54 @@ public class Menu {
                         continue;
                     }
                     if (subChoice == 1) {
+                        String artWarrior = """
+                                   |\\                     /)
+                                 /\\_\\\\__               (_//
+                                |   `>\\-`     _._       //`)
+                                 \\ /` \\\\  _.-`:::`-._  //
+                                  `    \\|`    :::    `|/
+                                        |     :::     |
+                                        |.....:::.....|
+                                        |:::::::::::::|
+                                        |     :::     |
+                                        \\     :::     /
+                                         \\    :::    /
+                                          `-. ::: .-'
+                                           //`:::`\\\\
+                                          //   '   \\\\
+                                         |/         \\\\      
+                                """;
+
+                        artWarrior.lines().forEach(System.out::println);
                         System.out.println("Enter name for warrior:");
                         String name = sc.nextLine();
                         System.out.println("Enter hp for warrior between 100-200:");
                         int hp = sc.nextInt();
                         Warrior warrior = new Warrior(name, hp);
-                        System.out.println("Warrior created: " + "\n" + "Name: " + warrior.getName() + "\n" + "Hp: " + warrior.getHp() + "hp " + "\n" + "Strength: " + warrior.getStrength() + "\n" + "Stamina: " + warrior.getStamina());
+                        System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
+                        System.out.println("Warrior created: " + "\n" + "Name: " + warrior.getName() + "\n" + "❤️Hp: " + warrior.getHp() + "hp " + "\n" + "💪Strength: " + warrior.getStrength() + "\n" + "🦵Stamina: " + warrior.getStamina());
                     } else if (subChoice == 2) {
+                        String artWarrior = """
+                                            *    .
+                                     '  +   ___    @    .
+                                         .-" __"-.   +
+                                 *      /:.'`__`'.\\       '
+                                     . |:: .'_ `. :|   *
+                                @      |:: '._' : :| .
+                                   +    \\:'.__.' :/       '
+                                         /`-...-'\\  '   +
+                                '       /         \\   .    @
+                                  *     `-.,___,.-'     
+                                """;
+
+                        artWarrior.lines().forEach(System.out::println);
                         System.out.println("Enter name for wizard:");
                         String name = sc.nextLine();
                         System.out.println("Enter hp for wizard between 50-100:");
                         int hp = sc.nextInt();
                         Wizard wizard = new Wizard(name, hp);
-                        System.out.println("Wizard created: " + "\n" + "Name: " + wizard.getName() + "\n" + "Hp: " + wizard.getHp() + "hp " + "\n" + "Intelligence: " + wizard.getIntelligence() + "\n" + "Mana: " + wizard.getMana());
+                        System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
+                        System.out.println("Wizard created: " + "\n" + "Name: " + wizard.getName() + "\n" + "❤️Hp: " + wizard.getHp() + "hp " + "\n" + "🧠Intelligence: " + wizard.getIntelligence() + "\n" + "💠Mana: " + wizard.getMana());
                     }
                     count++;
                 }
