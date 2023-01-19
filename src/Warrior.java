@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Warrior extends Character implements Attacker{
     private int stamina;
     private int strength;
@@ -64,7 +66,41 @@ public class Warrior extends Character implements Attacker{
     }
 
     @Override
-    public void attack() {
+    public void attack(Character character) {
+        String action;
+        int damage;
+        Random random = new Random();
+        action = random.nextBoolean()? "heavyAttack" : "weakAttack";
+        switch (action){
+            case "heavyAttack":
+                if(this.stamina>5){
+                    //case1: enough stamina for heavy attack
+                    damage = this.strength; //calculate damage
+                    character.setHp(character.getHp()-damage); //decrease enemy hp
+                    this.stamina -= 5; //decrease own stamina
+                    System.out.println(this.getName() + " executed a Heavy Attack for [" + damage + "] points of damage!");
+                } else if(this.stamina <= 0) {
+                    //case2: no stamina, no attack
+                    this.stamina += 2; //increases stamina +2
+                    System.out.println(this.getName() + " tries to attack but has not stamina!");
+                    System.out.println(this.getName() + " 'stamina increases by 2!");
+                } else {
+                    //case3: has stamina, but not enough (>0 && <5), weak attack
+                    damage = this.strength/2; //calculate damage
+                    character.setHp(character.getHp()-damage); //decrease enemy hp
+                    this.stamina += 1; //increases stamina +1
+                    System.out.println(this.getName() + " executed a Weak Attack for [" + damage + "] points of damage!");
+                    System.out.println(this.getName() + " 'stamina increases by 1!");
+                }
+                break;
+            case "weakAttack":
+                damage = this.strength/2;
+                character.setHp(character.getHp()-damage);
+                this.stamina += 1;
+                System.out.println(this.getName() + " executed a Weak Attack for [" + damage + "] points of damage!");
+                System.out.println(this.getName() + " 'stamina increases by 1!");
+                break;
+        }
 
     }
 }
