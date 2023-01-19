@@ -18,6 +18,7 @@ public class Menu {
                 """;
 
         art.lines().forEach(System.out::println);
+        System.out.println("created by PoderComputacional™ 2023" + "\n\n");
         Scanner sc = new Scanner(System.in);
         int choice;
             Character char1 = null;
