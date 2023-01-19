@@ -66,7 +66,7 @@ public class Wizard extends Character implements Attacker {
         //variable de fbDamage
         int fbDamage= this.intelligence;
         if (this.mana<5 && this.mana>0){
-            System.out.println(this.getName() + " tried a fireBall☄️ but had not enough mana🔋!");
+            System.out.println("[[ "+this.getName()+ " ]]" + " tried a FireBall☄️ but had not enough mana🔋!");
             staffHit(character);
 
 
@@ -74,7 +74,7 @@ public class Wizard extends Character implements Attacker {
         } else if (this.mana >=5) {
             this.mana -= 5;
             character.setHp(character.getHp()-fbDamage);
-            System.out.println(this.getName() + " executed FireBall☄️ for [" + fbDamage + "] points of damage!");
+            System.out.println("[[ "+this.getName()+ " ]]" + " executed FireBall☄️ for [" + fbDamage + "] points of damage!");
 
         }
     }
@@ -84,7 +84,7 @@ public class Wizard extends Character implements Attacker {
         if ( this.mana<5 && this.mana>0) {
             this.mana += 2;
             shDamage = 0;
-            System.out.println(this.getName() + " executed a Staff Hit🧹 for [" + shDamage+ "] points of damage. But hey, mana  🔋 increases by ["+ this.getMana() +"] points ");
+            System.out.println("[[ "+this.getName()+ " ]]" + " executed a Staff Hit🧹 for [" + shDamage+ "] points of damage. But hey, mana🔋 increased  2 point and is now  "+ this.getMana() +"!");
         }
         if (this.mana >= 5){
 
@@ -92,7 +92,7 @@ public class Wizard extends Character implements Attacker {
             shDamage =2;
             this.mana +=1;
             character.setHp(character.getHp()-shDamage);
-            System.out.println(this.getName() + "executed a Staff Hit🧹, for [" + shDamage+ "] points of damage and mana  🔋 increases by [" + this.getMana() + "] points.");
+            System.out.println("[[ "+this.getName()+ " ]]" + " executed a Staff Hit🧹, for [" + shDamage+ "] points of damage and mana🔋 increased  1 point and is now " + this.getMana() + "!");
         }
     }
 
