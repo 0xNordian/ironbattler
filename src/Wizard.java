@@ -95,5 +95,6 @@ public class Wizard extends Character implements Attacker {
             System.out.println(this.getName() + "executed a Staff Hit🧹, for [" + shDamage+ "] points of damage and mana  🔋 increases by [" + this.getMana() + "] points.");
         }
     }
+
 }
 
