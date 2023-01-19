@@ -1,6 +1,7 @@
 public abstract class Battle {
 
     public static void battle(Character cha1, Character cha2){
+        Sound.playSound();
         while(cha1.isAlive() && cha2.isAlive()){
             cha1.attack(cha2);
             cha2.attack(cha1);
@@ -52,7 +53,7 @@ public abstract class Battle {
                         "⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝"  + "\n" +
                         "⚔️🛡 " + cha1.getName() + " Final Stats:"  + "\n" +
                         "⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝"  + "\n" +
-                        "❤️ Original hp: " + ((Warrior) cha1).getMaxHp()  + "\n" +
+                        "❤️ Original hp: " + (cha1.getMaxHp()  + "\n" +
                         "❤️ Final hp: " + ((Warrior) cha1).getHp()  + "\n" +
                         "🥊️️ Damage taken hp: " + cha1HpDiff  + "\n\n" +
                         "⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝"  + "\n" +
@@ -62,7 +63,7 @@ public abstract class Battle {
                         "️❤️ Original hp: " + ((Wizard) cha2).getMaxHp()  + "\n" +
                         "💀 Final hp: " + ((Wizard) cha2).getHp()  + "\n" +
                         "🥊️ Damage taken hp: " + cha2HpDiff  + "\n"
-                );
+                ));
         } else if (cha1.isAlive() && cha1 instanceof Wizard && cha2 instanceof Wizard) {
             System.out.println(cha1.getName().toUpperCase() + " IS THE WINNER!" + "\n" +
                     "⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺⌺"  + "\n\n" +
