@@ -4,7 +4,6 @@ public class Warrior extends Character implements Attacker{
     private int stamina;
     private int strength;
 
-
     public Warrior(String name) {
         super(name);
         setStamina();
@@ -56,10 +55,6 @@ public class Warrior extends Character implements Attacker{
         return super.isAlive();
     }
 
-    @Override
-    public void setName(String name) {
-        super.setName(name.trim().substring(0,1).toUpperCase() + name.trim().substring(1).toLowerCase());
-    }
 
     @Override
     public String toString() {
@@ -78,30 +73,26 @@ public class Warrior extends Character implements Attacker{
         switch (action){
             case "heavyAttack":
                 if(this.stamina>5){
-                    damage = this.strength; //calculate damage
-                    character.setHp(character.getHp()-damage); //decrease enemy hp
-                    this.stamina -= 5; //decrease own stamina
-                    System.out.println("[[ "+this.getName()+ " ]]" + " executed a Heavy Attack💪 for [" + damage + "] points of damage!");
+                    damage = this.strength;
+                    character.setHp(character.getHp()-damage);
+                    this.stamina -= 5;
+                    System.out.println("⚔️  "+this.getName()+ "  \uD83D\uDEE1️" + " executed a Heavy Attack💪 for [" + damage + "] points of damage!");
                 } else if(this.stamina <= 0) {
-                    //case2: no stamina, no attack
-                    this.stamina += 2; //increases stamina +2
-                    System.out.println("[[ "+this.getName()+ " ]]" + " tried to attack but had not stamina🫠!");
-                    System.out.println("[[ "+this.getName()+ " ]]" + " 'stamina💉 increased by 2 and is now " + this.getStamina()+"!");
+                    this.stamina += 2;
+                    System.out.println("⚔️  "+this.getName()+ "  \uD83D\uDEE1️" + " tried to attack but had not stamina🫠! Took a deep breath and stamina\uD83D\uDC89 increased by 2 and is now " + this.getStamina()+ "!");
+
                 } else {
-                    //case3: has stamina, but not enough (>0 && <5), weak attack
-                    damage = this.strength/2; //calculate damage
-                    character.setHp(character.getHp()-damage); //decrease enemy hp
-                    this.stamina += 1; //increases stamina +1
-                    System.out.println("[[ "+this.getName()+ " ]]" +  " executed a Weak Attack👊 for [" + damage + "] points of damage!");
-                    System.out.println("[[ "+this.getName()+ " ]]" + " 'stamina💉  increased by 1 and is now " + this.getStamina()+"!");
+                    damage = this.strength/2;
+                    character.setHp(character.getHp()-damage);
+                    this.stamina += 1;
+                    System.out.println("⚔️  "+this.getName()+ "  \uD83D\uDEE1️" +  " executed a Weak Attack👊 for [" + damage + "] points of damage! Stamina\uD83D\uDC89 increased by 1 and is now " + this.getStamina()+ "!");
                 }
                 break;
             case "weakAttack":
                 damage = this.strength/2;
                 character.setHp(character.getHp()-damage);
                 this.stamina += 1;
-                System.out.println("[[ "+this.getName()+ " ]]" + " executed a Weak Attack👊 for [" + damage + "] points of damage!");
-                System.out.println("[[ "+this.getName()+ " ]]" + " 'stamina💉 increased by 1 and is now " + this.getStamina()+"!");
+                System.out.println("⚔️  "+this.getName()+ "  \uD83D\uDEE1️" + " executed a Weak Attack👊 for [" + damage + "] points of damage! Stamina\uD83D\uDC89 increased by 1 and is now " + this.getStamina()+ "!");
                 break;
         }
 
