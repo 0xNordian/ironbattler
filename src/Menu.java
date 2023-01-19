@@ -28,6 +28,10 @@ public class Menu {
             System.out.println("1) Create characters");
             System.out.println("2) Create random characters");
             System.out.println("3) Exit");
+            while(!sc.hasNextInt()){
+                System.out.println("Please, enter a value number:");
+                sc.next();
+            }
             choice = sc.nextInt();
             sc.nextLine();
             if (choice < 1 || choice > 3) {

@@ -104,6 +104,5 @@ public class Warrior extends Character implements Attacker{
                 System.out.println("[[ "+this.getName()+ " ]]" + " 'stamina💉 increased by 1 and is now " + this.getStamina()+"!");
                 break;
         }
-
     }
 }
