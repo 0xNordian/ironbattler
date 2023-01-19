@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Warrior extends Character implements Attacker{
     private int stamina;
     private int strength;
@@ -11,6 +13,9 @@ public class Warrior extends Character implements Attacker{
 
     public Warrior(String name, int hp) {
         super(name, hp);
+        if(hp < 100 || hp > 200){
+            super.setHp(150);
+        }
         setStamina();
         setStrength();
     }
@@ -47,6 +52,10 @@ public class Warrior extends Character implements Attacker{
         return super.isAlive();
     }
 
+    @Override
+    public void setName(String name) {
+        super.setName(name.trim().substring(0,1).toUpperCase() + name.trim().substring(1).toLowerCase());
+    }
 
     @Override
     public String toString() {
