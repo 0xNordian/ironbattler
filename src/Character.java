@@ -6,6 +6,8 @@ public abstract class Character implements Attacker {
     private int hp;
     private boolean isAlive;
 
+    private int maxHp;
+
     public Character(String name) {
         this.id = UUID.randomUUID().toString();
         setName(name);
@@ -17,6 +19,7 @@ public abstract class Character implements Attacker {
         setName(name);
         setHp(hp);
         this.isAlive = true;
+        this.maxHp = hp;
     }
 
     public String getId() {
@@ -25,6 +28,10 @@ public abstract class Character implements Attacker {
 
     public String getName() {
         return name;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
     }
 
     public void setName(String name) {
@@ -36,6 +43,9 @@ public abstract class Character implements Attacker {
     }
 
     public void setHp(int hp) {
+            if(maxHp == 0){
+                this.maxHp = hp;
+            }
             this.hp = hp;
     }
     public boolean isAlive() {
