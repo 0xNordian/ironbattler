@@ -1,4 +1,5 @@
-import java.util.UUID;
+
+pimport java.util.UUID;
 
 public abstract class Character {
     private String id;
