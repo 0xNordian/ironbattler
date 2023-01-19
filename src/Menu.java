@@ -43,6 +43,7 @@ public class Menu {
                 continue;
             }
             if (choice == 1) {
+                System.out.println(TEXT_GREEN + "\033[3m `Welcome to the arena! Here to see the battle?  \033[23m" + TEXT_RESET);
                 char1 = createCharacter();
                 char2 = createCharacter();
                 System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
@@ -57,7 +58,6 @@ public class Menu {
             }
         }
         while (choice == 3);
-        //System.out.println("Players Stats Details TBD");
         Battle.battle(char1, char2);
     }
 
@@ -67,10 +67,11 @@ public class Menu {
     private static Character createCharacter(){
         Character cha = null;
         Scanner sc = new Scanner(System.in);
-            System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
-            System.out.println("Create characters:");
-            System.out.println("1) Warrior ⚔️\uD83D\uDEE1️");
-            System.out.println("2) Wizard \uD83E\uDDD9\u200D️\uD83D\uDD2E");
+            //System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
+            System.out.println(TEXT_GREEN + "\033[3m Choose a fighter! Pick one of those warriors... or perhaps a wizard.` \033[23m" + TEXT_RESET);
+            System.out.println("Select class:");
+            System.out.println("1) ⚔️ Warrior \uD83D\uDEE1️");
+            System.out.println("2) \uD83E\uDDD9\u200D Wizard ️\uD83D\uDD2E");
             while(!sc.hasNextInt()){
                 System.out.println("Please, enter a value number:");
                 sc.next();
@@ -109,13 +110,16 @@ public class Menu {
                                     """;
 
         artWarrior.lines().forEach(System.out::println);
-        System.out.println("Enter name for warrior:");
+        System.out.println(TEXT_GREEN + "\033[3m `Ah a warrior, then! Hope their sword is sharp...` ");
+        System.out.println(" `What's their name?` \033[23m" + TEXT_RESET);
+        System.out.println("Enter name:");
         String name = sc.nextLine();
-        System.out.println("Enter hp for warrior between 100-200:");
+        System.out.println(TEXT_GREEN + "\033[3m `" + name + "? Complete their registry for the battle, then.` \033[23m" + TEXT_RESET);
+        System.out.println("Enter health points (between 100-200):");
         int hp = sc.nextInt();
         Warrior warrior = new Warrior(name, hp);
         System.out.println("⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄");
-        System.out.println("⚔️\uD83D\uDEE1 Warrior created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + warrior.getName() + "\n" + "❤️Hp: " + warrior.getHp() + "hp " + "\n" + "💪Strength: " + warrior.getStrength() + "\n" + "🦵Stamina: " + warrior.getStamina());
+        System.out.println("⚔️\uD83D\uDEE1 Warrior created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + warrior.getName() + "\n" + "❤️ Hp: " + warrior.getHp() + "hp " + "\n" + "💪 Strength: " + warrior.getStrength() + "\n" + "🦵 Stamina: " + warrior.getStamina());
     
         return warrior;
     }
@@ -136,13 +140,16 @@ public class Menu {
                                 """;
 
         artWarrior.lines().forEach(System.out::println);
-        System.out.println("Enter name for wizard:");
+        System.out.println(TEXT_GREEN + "\033[3m `A wizard! Is their magic powder any good?` ");
+        System.out.println(" `What's their name?` \033[23m" + TEXT_RESET);
+        System.out.println("Enter name:");
         String name = sc.nextLine();
-        System.out.println("Enter hp for wizard between 50-100:");
+        System.out.println(TEXT_GREEN + "\033[3m `" + name + "? Complete their registry for the battle, then.` \033[23m" + TEXT_RESET);
+        System.out.println("Enter health points (between 50-100):");
         int hp = sc.nextInt();
         Wizard wizard = new Wizard(name, hp);
         System.out.println("⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄");
-        System.out.println("\uD83E\uDDD9\u200D️\uD83D\uDD2E Wizard created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + wizard.getName() + "\n" + "❤️Hp: " + wizard.getHp() + "hp " + "\n" + "🧠Intelligence: " + wizard.getIntelligence() + "\n" + "💠Mana: " + wizard.getMana());
+        System.out.println("\uD83E\uDDD9\u200D️\uD83D\uDD2E Wizard created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + wizard.getName() + "\n" + "❤️ Hp: " + wizard.getHp() + "hp " + "\n" + "🧠 Intelligence: " + wizard.getIntelligence() + "\n" + "💠 Mana: " + wizard.getMana());
     
         return wizard;
     }
@@ -189,6 +196,11 @@ public class Menu {
         fantasyNames.add("Ginny");
         fantasyNames.add("Draco");
         fantasyNames.add("Snape");
+        fantasyNames.add("Nestor");
+        fantasyNames.add("Estel");
+        fantasyNames.add("Jordi");
+        fantasyNames.add("Dani");
+        fantasyNames.add("Marina");
     }
 
     public static String generateRandomName() {
@@ -196,5 +208,15 @@ public class Menu {
         int randomIndex = rand.nextInt(fantasyNames.size());
         return fantasyNames.get(randomIndex);
     }
+
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_BLACK = "\u001B[30m";
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_BLUE = "\u001B[34m";
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_PURPLE = "\u001B[35m";
+    public static final String TEXT_CYAN = "\u001B[36m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
+    public static final String TEXT_WHITE = "\u001B[37m";
 
 }
