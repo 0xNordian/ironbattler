@@ -37,15 +37,19 @@ public class Menu {
             if (choice == 1) {
                 char1 = createCharacter();
                 char2 = createCharacter();
+                System.out.println("\n");
                 System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
                 System.out.println("Let the battle begin!");
                 System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
+                System.out.println("\n");
             } else if (choice == 2) {
                     char1 = createRandomCharacter();
                     char2 = createRandomCharacter();
+                System.out.println("\n");
                 System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
                 System.out.println("Let the battle begin!");
                 System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
+                System.out.println("\n");
             }
         }
         while (choice == 3);
