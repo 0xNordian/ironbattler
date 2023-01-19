@@ -12,6 +12,9 @@ public class Wizard extends Character implements Attacker {
     }
     public Wizard(String name, int hp) {
         super(name, hp);
+        if(hp < 50 || hp > 100){
+            super.setHp(75);
+        }
         setMana();
         setIntelligence();
     }

@@ -20,6 +20,8 @@ public class Menu {
         art.lines().forEach(System.out::println);
         Scanner sc = new Scanner(System.in);
         int choice;
+            Character char1 = null;
+            Character char2 = null;
         do {
             System.out.println("Select game mode:");
             System.out.println("1) Create characters");
@@ -32,28 +34,25 @@ public class Menu {
                 continue;
             }
             if (choice == 1) {
-                createCharacter();
-                System.out.println("Let the battle begin! First");
-
-                break;
-            } else if (choice == 2) {
-                int count = 0;
-                while (count < 2) {
-                    createRandomCharacter();
-                    count++;
-                }
+                char1 = createCharacter();
+                char2 = createCharacter();
                 System.out.println("Let the battle begin!");
-
-                break;
+            } else if (choice == 2) {
+                    char1 = createRandomCharacter();
+                    char2 = createRandomCharacter();
+                System.out.println("Let the battle begin!");
             }
         }
-        while (choice != 3);
+        while (choice == 3);
+        Battle.battle(char1, char2);
     }
 
-    private static void createCharacter(){
+    private static void battle() {
+    }
+
+    private static Character createCharacter(){
+        Character cha = null;
         Scanner sc = new Scanner(System.in);
-        int count = 0;
-        while (count < 2) {
             System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
             System.out.println("Create characters:");
             System.out.println("1) Warrior ⚔️\uD83D\uDEE1️");
@@ -62,18 +61,16 @@ public class Menu {
             sc.nextLine();
             if (subChoice < 1 || subChoice > 2) {
                 System.out.println("Invalid option, please select 1 or 2");
-                continue;
             }
             if (subChoice == 1) {
-                warriorCharacterGenerator();
+               cha = warriorCharacterGenerator();
             } else if (subChoice == 2) {
-                wizardCharacterGenerator();
+                cha = wizardCharacterGenerator();
             }
-            count++;
-        }
+        return cha;
     }
 
-    private static void warriorCharacterGenerator(){
+    private static Character warriorCharacterGenerator(){
         Scanner sc = new Scanner(System.in);
         String artWarrior = """
                                        |\\                     /)
@@ -101,9 +98,11 @@ public class Menu {
         Warrior warrior = new Warrior(name, hp);
         System.out.println("⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄");
         System.out.println("⚔️\uD83D\uDEE1 Warrior created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + warrior.getName() + "\n" + "❤️Hp: " + warrior.getHp() + "hp " + "\n" + "💪Strength: " + warrior.getStrength() + "\n" + "🦵Stamina: " + warrior.getStamina());
+    
+        return warrior;
     }
 
-    private static void wizardCharacterGenerator(){
+    private static Character wizardCharacterGenerator(){
         Scanner sc = new Scanner(System.in);
         String artWarrior = """
                                             *    .
@@ -126,19 +125,23 @@ public class Menu {
         Wizard wizard = new Wizard(name, hp);
         System.out.println("⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄");
         System.out.println("\uD83E\uDDD9\u200D️\uD83D\uDD2E Wizard created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + wizard.getName() + "\n" + "❤️Hp: " + wizard.getHp() + "hp " + "\n" + "🧠Intelligence: " + wizard.getIntelligence() + "\n" + "💠Mana: " + wizard.getMana());
+    
+        return wizard;
     }
 
-    public static void createRandomCharacter() {
+    public static Character createRandomCharacter() {
+        Character cha;
         int randomNum = (int) (Math.random() * 2) + 1;
         if (randomNum == 1) {
-            Warrior warrior = new Warrior(generateRandomName(), (int) (Math.random() * (200 - 100)) + 100);
+            cha = new Warrior(generateRandomName(), (int) (Math.random() * (200 - 100)) + 100);
             System.out.println("⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄");
-            System.out.println("⚔️\uD83D\uDEE1 Warrior created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + warrior.getName() + "\n" + "❤️Hp: " + warrior.getHp() + "hp " + "\n" + "💪Strength: " + warrior.getStrength() + "\n" + "🦵Stamina: " + warrior.getStamina());
+            System.out.println("⚔️\uD83D\uDEE1 Warrior created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + cha.getName() + "\n" + "❤️Hp: " + cha.getHp() + "hp " + "\n" + "💪Strength: " + ((Warrior) cha).getStrength() + "\n" + "🦵Stamina: " + ((Warrior) cha).getStamina());
         } else {
-            Wizard wizard = new Wizard(generateRandomName(), (int) (Math.random() * (100 - 50)) + 50);
+            cha = new Wizard(generateRandomName(), (int) (Math.random() * (100 - 50)) + 50);
             System.out.println("⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄");
-            System.out.println("\uD83E\uDDD9\u200D️\uD83D\uDD2E Wizard created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + wizard.getName() + "\n" + "❤️Hp: " + wizard.getHp() + "hp " + "\n" + "🧠Intelligence: " + wizard.getIntelligence() + "\n" + "💠Mana: " + wizard.getMana());
+            System.out.println("\uD83E\uDDD9\u200D️\uD83D\uDD2E Wizard created: " + "\n" + "⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄⌃⌄" + "\n" + "Name: " + cha.getName() + "\n" + "❤️Hp: " + cha.getHp() + "hp " + "\n" + "🧠Intelligence: " + ((Wizard) cha).getIntelligence() + "\n" + "💠Mana: " + ((Wizard) cha).getMana());
         }
+        return cha;
     }
     private static ArrayList<String> fantasyNames = new ArrayList<>();
 
