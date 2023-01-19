@@ -48,7 +48,6 @@ public class Wizard extends Character implements Attacker {
     public boolean isAlive() {
         return super.isAlive();
     }
-
     @Override
     public void attack(Character character) {
         Random random= new Random();
@@ -60,25 +59,18 @@ public class Wizard extends Character implements Attacker {
             staffHit(character);
         }
     }
-
-    ////// fireball attack///////
     private void fireball(Character character) {
         //variable de fbDamage
         int fbDamage= this.intelligence;
         if (this.mana<5 && this.mana>0){
             System.out.println("[[ "+this.getName()+ " ]]" + " tried a FireBall☄️ but had not enough mana🔋!");
             staffHit(character);
-
-
-
         } else if (this.mana >=5) {
             this.mana -= 5;
             character.setHp(character.getHp()-fbDamage);
             System.out.println("[[ "+this.getName()+ " ]]" + " executed FireBall☄️ for [" + fbDamage + "] points of damage!");
-
         }
     }
-
     private void staffHit (Character character){
         int shDamage;
         if ( this.mana<5 && this.mana>0) {
@@ -87,14 +79,11 @@ public class Wizard extends Character implements Attacker {
             System.out.println("[[ "+this.getName()+ " ]]" + " executed a Staff Hit🧹 for [" + shDamage+ "] points of damage. But hey, mana🔋 increased  2 point and is now  "+ this.getMana() +"!");
         }
         if (this.mana >= 5){
-
-            // damage to warrior? how to represent it
             shDamage =2;
             this.mana +=1;
             character.setHp(character.getHp()-shDamage);
             System.out.println("[[ "+this.getName()+ " ]]" + " executed a Staff Hit🧹, for [" + shDamage+ "] points of damage and mana🔋 increased  1 point and is now " + this.getMana() + "!");
         }
     }
-
 }
 

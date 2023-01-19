@@ -35,7 +35,7 @@ public abstract class Character implements Attacker {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.trim().substring(0,1).toUpperCase() + name.trim().substring(1).toLowerCase();
     }
 
     public int getHp() {
