@@ -6,6 +6,7 @@ public abstract class Battle {
             cha2.attack(cha1);
             if(cha1.getHp() <= 0) cha1.setAlive(false);
             if(cha2.getHp() <= 0) cha2.setAlive(false);
+            System.out.println("・・・・・・・・・・・・・・・・・・・・・・");
         }
         checkStatus(cha1, cha2);
         // System.out.println("TEST NT");
