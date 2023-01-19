@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,15 +22,22 @@ public class Menu {
         System.out.println("created by PoderComputacional™ 2023" + "\n\n");
         Scanner sc = new Scanner(System.in);
         int choice;
-            Character char1 = null;
-            Character char2 = null;
+        boolean intCheck = true;
+        Character char1 = null;
+        Character char2 = null;
         do {
             System.out.println("Select game mode:");
             System.out.println("1) Create characters");
             System.out.println("2) Create random characters");
             System.out.println("3) Exit");
+
+            while(!sc.hasNextInt()){
+                System.out.println("Please, enter a value number:");
+                sc.next();
+            }
             choice = sc.nextInt();
             sc.nextLine();
+
             if (choice < 1 || choice > 3) {
                 System.out.println("Invalid option, please select 1, 2 or 3");
                 continue;
@@ -63,6 +71,10 @@ public class Menu {
             System.out.println("Create characters:");
             System.out.println("1) Warrior ⚔️\uD83D\uDEE1️");
             System.out.println("2) Wizard \uD83E\uDDD9\u200D️\uD83D\uDD2E");
+            while(!sc.hasNextInt()){
+                System.out.println("Please, enter a value number:");
+                sc.next();
+            }
             int subChoice = sc.nextInt();
             sc.nextLine();
             if (subChoice < 1 || subChoice > 2) {
