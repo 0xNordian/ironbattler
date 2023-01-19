@@ -1,11 +1,13 @@
 
 pimport java.util.UUID;
 
-public abstract class Character {
+public abstract class Character implements Attacker {
     private String id;
     private String name;
     private int hp;
     private boolean isAlive;
+
+    private int maxHp;
 
     public Character(String name) {
         this.id = UUID.randomUUID().toString();
@@ -18,6 +20,7 @@ public abstract class Character {
         setName(name);
         setHp(hp);
         this.isAlive = true;
+        this.maxHp = hp;
     }
 
     public String getId() {
@@ -26,6 +29,10 @@ public abstract class Character {
 
     public String getName() {
         return name;
+    }
+
+    public int getMaxHp() {
+        return maxHp;
     }
 
     public void setName(String name) {
@@ -37,11 +44,10 @@ public abstract class Character {
     }
 
     public void setHp(int hp) {
-        if(hp <= 0) {
-            this.hp = 1;
-        } else {
+            if(maxHp == 0){
+                this.maxHp = hp;
+            }
             this.hp = hp;
-        }
     }
     public boolean isAlive() {
         return isAlive;
@@ -55,4 +61,8 @@ public abstract class Character {
         this.hp = newHp;
     }
 
+    @Override
+    public void attack(Character character) {
+
+    }
 }
