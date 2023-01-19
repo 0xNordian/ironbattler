@@ -6,7 +6,7 @@ public class Wizard extends Character implements Attacker {
 
     public Wizard(String name) {
         super(name);
-        setHP();
+        setHp();
         setMana();
         setIntelligence();
     }
@@ -19,11 +19,14 @@ public class Wizard extends Character implements Attacker {
         setIntelligence();
     }
 
-    public void setHP (){
+    public void setHp (){
         int vida =(int) (Math.random()*(100-50))+50;
         super.setHp(vida);
     }
 
+    public void setHp(int hp){
+        super.setHp(hp);
+    }
 
     public int getMana() {
         return mana;
@@ -69,7 +72,7 @@ public class Wizard extends Character implements Attacker {
         } else if (this.mana >=5) {
             this.mana -= 5;
             character.setHp(character.getHp()-fbDamage);
-            System.out.println("Attack: fireBall, Damage = Intelligence, -5 point mana");
+            System.out.println(this.getName() + "Attack: fireBall☄️, Damage = Intelligence, -5 point mana");
 
         }
     }
@@ -79,7 +82,7 @@ public class Wizard extends Character implements Attacker {
         if ( this.mana<5 && this.mana>0) {
             this.mana += 2;
             shDamage = 0;
-            System.out.println("Mana is lower than 5, attack type Staff Hit, 2 mana recovered");
+            System.out.println(this.getName() + "Mana is lower than 5, attack type Staff Hit, 2 mana recovered");
         }
         if (this.mana >= 5){
 
@@ -87,7 +90,7 @@ public class Wizard extends Character implements Attacker {
             shDamage =2;
             this.mana +=1;
             character.setHp(character.getHp()-shDamage);
-            System.out.println("Attack: staff Hit, Damage -2, you have gain 1 mana");
+            System.out.println(this.getName() + "Attack: staff Hit, Damage -2, you have gain 1 mana");
         }
     }
 }

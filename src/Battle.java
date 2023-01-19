@@ -12,9 +12,13 @@ public abstract class Battle {
 
     public static void checkStatus(Character cha1, Character cha2){
         if(!cha1.isAlive() && !cha2.isAlive()){
+            System.out.println("It's a tie. Fight Again!");
+            cha1.setAlive(true);
+            cha2.setAlive(true);
             battle(cha1, cha2);
         }
-        if(cha1.isAlive()) System.out.println("Cha1 Winner!");
-        if(cha2.isAlive()) System.out.println("Cha2 Winner!");
+        System.out.println("⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝⏜⏝");
+        if(cha1.isAlive()) System.out.println(cha1.getName() + " is the Winner!");
+        if(cha2.isAlive()) System.out.println(cha2.getName() + " is the Winner!");
     }
 }

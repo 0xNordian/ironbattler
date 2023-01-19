@@ -36,11 +36,7 @@ public abstract class Character implements Attacker {
     }
 
     public void setHp(int hp) {
-        if(hp <= 0) {
-            this.hp = 1;
-        } else {
             this.hp = hp;
-        }
     }
     public boolean isAlive() {
         return isAlive;

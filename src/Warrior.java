@@ -41,10 +41,13 @@ public class Warrior extends Character implements Attacker{
         return super.getHp();
     }
 
-
     public void setHp() {
         int vida = (int) (Math.random() * (200 - 100)) + 100;
         super.setHp(vida);
+    }
+
+    public void setHp(int hp){
+        super.setHp(hp);
     }
 
     @Override
@@ -74,7 +77,6 @@ public class Warrior extends Character implements Attacker{
         switch (action){
             case "heavyAttack":
                 if(this.stamina>5){
-                    //case1: enough stamina for heavy attack
                     damage = this.strength; //calculate damage
                     character.setHp(character.getHp()-damage); //decrease enemy hp
                     this.stamina -= 5; //decrease own stamina
