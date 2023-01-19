@@ -1,3 +1,3 @@
 public interface Attacker {
-    void attack(Character player);
+    void attack(Character character);
 }

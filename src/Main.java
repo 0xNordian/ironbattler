@@ -1,15 +1,14 @@
 import java.util.Scanner;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        //Warrior w1 = new Warrior("NT");
-        //w1.attack();
+        Warrior w1 = new Warrior("NT");
+        Warrior w2 = new Warrior("Marina", 200000000);
+        Wizard w3 = new Wizard("Marina", 200000000);
 
-        //Warrior w2 = new Warrior("Marina", 200000000);
-        //w1.attack();
-
-        Character player1 = createCharacter();
 
     }
     public static Character createCharacter(){
